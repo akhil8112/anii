@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Will You Be Mine Forever?</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #eda7d9, #92aede);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      color: #fff;
+      text-align: center;
+      height: 100vh;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-top: 3rem;
+      animation: fadeIn 2s ease-in-out;
+      z-index: 2;
+      position: relative;
+    }
+
+    p {
+      font-size: 1.5rem;
+      max-width: 600px;
+      margin: 1rem auto;
+      animation: fadeIn 3s ease-in-out;
+      z-index: 2;
+      position: relative;
+    }
+
+    .buttons {
+      margin-top: 2rem;
+      position: relative;
+      height: 200px;
+      width: 100%;
+      z-index: 2;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background-color: #ff6f91;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s;
+      position: absolute;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+    }
+
+    #yesBtn {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .hearts-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .heart {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background-color: #ff4d6d;
+      transform: rotate(45deg);
+      animation: floatUp 8s linear infinite;
+      opacity: 0.7;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background-color: #ff4d6d;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -12.5px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: -12.5px;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts-container">
+    <!-- Multiple floating hearts -->
+    <div class="heart" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="heart" style="left: 20%; animation-delay: 2s;"></div>
+    <div class="heart" style="left: 30%; animation-delay: 4s;"></div>
+    <div class="heart" style="left: 40%; animation-delay: 1s;"></div>
+    <div class="heart" style="left: 60%; animation-delay: 3s;"></div>
+    <div class="heart" style="left: 80%; animation-delay: 5s;"></div>
+    <div class="heart" style="left: 90%; animation-delay: 1.5s;"></div>
+  </div>
+
+  <h1>Will You Be Mine Forever? 💍</h1>
+  <p>Babu mera proposal aap chah kar bhi reject nhi kar sakti😂 aapke pass koi option nhi hai babu aapko mera proposal accept karna hi hoga agar dher sari choclate khani hai. Babu please kar lo accept🥺🥺.</p>
+
+  <div class="buttons">
+    <button class="btn" id="yesBtn" onclick="goToGift()">Yes 🌹</button>
+    <button class="btn" id="noBtn" onmouseover="moveNo()">No 🙈</button>
+  </div>
+
+  <script>
+    function goToGift() {
+      window.location.href = 'gift.html';
+    }
+
+    function moveNo() {
+      const noBtn = document.getElementById('noBtn');
+      const container = document.querySelector('.buttons');
+      const containerWidth = container.offsetWidth;
+      const containerHeight = container.offsetHeight;
+
+      const newX = Math.random() * (containerWidth - 100);
+      const newY = Math.random() * (containerHeight - 50);
+
+      noBtn.style.left = `${newX}px`;
+      noBtn.style.top = `${newY}px`;
+    }
+  </script>
+</body>
+</html>
